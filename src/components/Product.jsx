@@ -13,8 +13,8 @@ const { Meta } = Card;
 const Product = ({product}) => {
   const dispatch =useDispatch();
 
-  const addTocartS=()=>{
-    dispatch(addTocart())
+  const addTocartS=(prod)=>{
+    dispatch(addTocart(prod))
   }
 
   return (
