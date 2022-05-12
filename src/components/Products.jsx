@@ -1,10 +1,11 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { Row, Col } from 'antd';
 import Product from './Product';
 import { useDispatch,useSelector } from 'react-redux';
 import { fetchProducts } from '../thunks/productthunk';
 import { Spin, Space } from 'antd';
 import { Alert } from 'antd';
+import { Input } from 'antd';
 
 
 
@@ -12,11 +13,27 @@ const Products = () => {
 
   const dispatch=useDispatch();
   const productWhole=useSelector(state=>state.productSlice);
+  const [state,setState]=useState("");
   console.log(productWhole)
-  const products=productWhole.products;
+  let products=[];
+
+  if(state.length>0){
+    products=productWhole.products.filter(ele=>ele.title.includes(state));
+
+  }
+  else{
+    products=productWhole.products
+  }
   const show=productWhole.showSpinner
   const error=productWhole.error;
 
+
+
+
+  const search=(event)=>{
+    setState(event.target.value)
+
+  }
 
 
   useEffect(()=>{
@@ -35,6 +52,9 @@ const Products = () => {
         show? <Spin size="large"   style={{marginLeft:"600px"}}/>:""
       }
      
+
+     <Input placeholder="Basic usage"  onChange={search}/>
+
 
 <Row>
 
