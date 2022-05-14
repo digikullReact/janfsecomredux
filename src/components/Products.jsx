@@ -6,6 +6,7 @@ import { fetchProducts } from '../thunks/productthunk';
 import { Spin, Space } from 'antd';
 import { Alert } from 'antd';
 import { Input } from 'antd';
+import Cart from "./Cart";
 
 
 
@@ -43,7 +44,10 @@ const Products = () => {
 
 
   return (
-    <div style={{marginTop:"40px",padding:"50px"}}>
+    <>
+         <Cart/>
+
+         <div style={{marginTop:"40px",padding:"50px"}}>
       {
          error?   <Alert message="Network Error" type="error" />:""
 
@@ -69,6 +73,9 @@ const Products = () => {
     </Row>
 
     </div>
+    
+    </>
+
   )
 }
 

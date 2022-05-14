@@ -5,11 +5,18 @@ import './index.css'
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import { store } from './store/store'
 import { Provider } from 'react-redux'
+import {
+  BrowserRouter,
+  
+} from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
    <Provider store={store}>
-    <App />
+   <BrowserRouter>
+   <App />
+   </BrowserRouter>
+
   </Provider>
   </React.StrictMode>,
 )

@@ -4,7 +4,12 @@ import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 import './App.css'
 import Products from './components/Products'
-import Cart from './components/Cart';
+import {
+
+  Routes,
+  Route,
+} from "react-router-dom";
+import Signup from './components/Signup';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,15 +17,29 @@ function App() {
   return (
     <Layout>
       <Header>Header</Header>
-      <Cart/>
-      <Content>
+ 
+      <Content style={{marginTop:"120px"}}>
+      <Routes>
+      <Route path="/signup" element={<Signup />}/>    
 
-      <Products/>
+      <Route path="/products" element={< Products/>}/>
+     
+      </Routes>
+
+    
       </Content>
-      <Footer>Footer</Footer>
+    
     </Layout>
    
   )
 }
 
 export default App
+
+// useRefs
+// Redux --->plain old redux
+// useContext 
+// pagination 
+//useReducer hook
+// Recoil
+
