@@ -10,13 +10,18 @@ import {
   Route,
 } from "react-router-dom";
 import Signup from './components/Signup';
+import MyHeader from './components/MyHeader';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <Layout>
-      <Header>Header</Header>
+     
+      <MyHeader/>
+
+
+
  
       <Content style={{marginTop:"120px"}}>
       <Routes>

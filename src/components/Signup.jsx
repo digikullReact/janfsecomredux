@@ -15,6 +15,8 @@ const Signup = () => {
   const {type,text}=useSelector(state=>state.authslice.status)
   const onFinish = (values) => {
     dispatch(signup(values)).then(data=>{
+      debugger;
+      localStorage.setItem("token",data.payload.authtoken)
      // debugger;
       navigate('/products');
 

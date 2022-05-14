@@ -5,10 +5,8 @@ import { signup } from '../thunks/auththunk'
 
 
 const initialState = {
-    name:"",
-    email:"",
-    password:"",
-    status:{
+  loggedIn:false,
+  status:{
        type:"",
        text:""
 
@@ -21,11 +19,17 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    logout:(state,action)=>{
+      localStorage.removeItem("token");
+      state.loggedIn=false;
+
+    }
 
  
   },
   extraReducers:(builder)=>{
     builder.addCase(signup.fulfilled,(state,action)=>{
+      state.loggedIn=true;
   
 
         // we will be reciving token from here right 
@@ -62,6 +66,6 @@ export const authSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { } = authSlice.actions
+export const {logout } = authSlice.actions
 
 export default authSlice.reducer
